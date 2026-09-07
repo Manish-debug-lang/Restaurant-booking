@@ -10,7 +10,7 @@ The application allows users to explore restaurants, view menus, photos and revi
 
 🔗 **Live Website:** https://restaurant-booking-production-9aef.up.railway.app
 
-🔗 **GitHub Repository:** https://github.com/AJ5322/restaurant-booking
+🔗 **GitHub Repository:** 
 
 ---
 
