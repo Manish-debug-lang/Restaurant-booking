@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${restaurant.name} + ' - Book a Table'">
+        Book a Table - FoodBook
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/#restaurants">
+            Restaurants
+        </a>
+
+        <a href="/#about">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- BOOKING SECTION -->
+
+<section class="booking-section">
+
+    <div class="booking-container">
+
+
+        <!-- RESTAURANT INFORMATION -->
+
+        <div class="booking-restaurant">
+
+            <img th:src="${restaurant.imageUrl}"
+                 th:alt="${restaurant.name}">
+
+
+            <div class="booking-restaurant-info">
+
+                <p class="section-label">
+                    TABLE AVAILABILITY
+                </p>
+
+                <h1 th:text="${restaurant.name}">
+                    Restaurant Name
+                </h1>
+
+                <div class="booking-rating">
+
+                    ⭐
+
+                    <strong th:text="${restaurant.rating}">
+                        4.5
+                    </strong>
+
+                    <span>
+                        / 5
+                    </span>
+
+                </div>
+
+                <p class="details-location">
+
+                    📍
+
+                    <span th:text="${restaurant.location}">
+                        Location
+                    </span>
+
+                </p>
+
+                <p th:text="${restaurant.description}">
+
+                    Restaurant description
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOOKING FORM -->
+
+        <div class="booking-form-container">
+
+            <p class="section-label">
+                RESERVATION
+            </p>
+
+            <h2>
+                Customer Details
+            </h2>
+
+            <p class="form-subtitle">
+
+                Enter your details and select your
+                preferred date, time and number of guests.
+
+            </p>
+
+
+            <!-- ERROR MESSAGE -->
+
+            <div class="booking-error"
+                 th:if="${errorMessage}"
+                 th:text="${errorMessage}">
+
+                Error message
+
+            </div>
+            
+           
+
+
+
+            <form th:action="@{/restaurant/{id}/check-availability(id=${restaurant.id})}"
+                  th:object="${booking}"
+                  method="post">
+
+
+                <!-- CUSTOMER NAME -->
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input type="text"
+                           id="customerName"
+                           th:field="*{customerName}"
+                           placeholder="Enter your full name"
+                           required>
+
+                </div>
+                
+                <div th:if="${#fields.hasErrors('customerName')}"
+     th:errors="*{customerName}"
+     style="color: red;">
+</div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           th:field="*{email}"
+                           placeholder="Enter your email address"
+                           required>
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input type="tel"
+                           id="phone"
+                           th:field="*{phone}"
+                           placeholder="Enter your phone number"
+                           required>
+                           
+                           <div th:if="${#fields.hasErrors('phone')}"
+     						th:errors="*{phone}"
+  						   style="color: red;">
+							</div>
+
+                </div>
+
+
+
+                <!-- DATE + TIME -->
+
+                <div class="form-row">
+
+
+                    <!-- DATE -->
+
+                    <div class="form-group">
+
+                        <label for="bookingDate">
+                            Booking Date
+                        </label>
+
+                        <input type="date"
+       					id="bookingDate"
+       					th:field="*{bookingDate}"
+       					required>
+
+                    </div>
+
+
+
+                    <!-- TIME -->
+
+                    <div class="form-group">
+
+                        <label for="bookingTime">
+                            Booking Time
+                        </label>
+
+                        <input type="time"
+                               id="bookingTime"
+                               th:field="*{bookingTime}"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GUESTS -->
+
+                <div class="form-group">
+
+                    <label for="guests">
+                        Number of Guests
+                    </label>
+
+                    <input type="number"
+                           id="guests"
+                           th:field="*{guests}"
+                           min="1"
+                           max="20"
+                           required>
+
+                    <small>
+                        We will check a table matching
+                        your guest count.
+                    </small>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button type="submit"
+                        class="booking-button">
+
+                    🔎 Check Table Availability
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+<script>
+
+    const dateInput =
+        document.getElementById("bookingDate");
+
+    const timeInput =
+        document.getElementById("bookingTime");
+
+
+    // Today's date
+    const today = new Date();
+
+    const year = today.getFullYear();
+
+    const month =
+        String(today.getMonth() + 1).padStart(2, "0");
+
+    const day =
+        String(today.getDate()).padStart(2, "0");
+
+
+    const todayString =
+        `${year}-${month}-${day}`;
+
+
+    // Don't allow past dates
+    dateInput.min = todayString;
+
+
+    // Restaurant opening and closing time
+    timeInput.min = "11:00";
+    timeInput.max = "22:00";
+
+
+    // Prevent today's past time
+    function updateTime() {
+
+        if (dateInput.value === todayString) {
+
+            const now = new Date();
+
+            const hours =
+                String(now.getHours()).padStart(2, "0");
+
+            const minutes =
+                String(now.getMinutes()).padStart(2, "0");
+
+            timeInput.min =
+                `${hours}:${minutes}`;
+
+        } else {
+
+            timeInput.min = "11:00";
+
+        }
+
+    }
+
+
+    dateInput.addEventListener(
+        "change",
+        updateTime
+    );
+
+
+    updateTime();
+
+</script>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Table - FoodBook Admin</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/admin">
+            Dashboard
+        </a>
+
+        <a href="/admin/restaurants">
+            Restaurants
+        </a>
+
+        <a href="/admin/tables">
+            Tables
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="booking-section">
+
+    <div class="booking-form-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            Add Restaurant Table
+        </h1>
+
+        <p class="form-subtitle">
+            Add a table to a restaurant.
+        </p>
+
+
+        <form
+            th:action="@{/admin/tables/save}"
+            th:object="${table}"
+            method="post">
+
+
+            <!-- RESTAURANT -->
+
+            <div class="form-group">
+
+                <label for="restaurantId">
+                    Restaurant
+                </label>
+
+                <select
+                    id="restaurantId"
+                    th:field="*{restaurantId}"
+                    required>
+
+                    <option value="">
+                        Select Restaurant
+                    </option>
+
+                    <option
+                        th:each="restaurant : ${restaurants}"
+                        th:value="${restaurant.id}"
+                        th:text="${restaurant.name}">
+
+                        Restaurant
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TABLE NUMBER -->
+
+            <div class="form-group">
+
+                <label for="tableNumber">
+                    Table Number
+                </label>
+
+                <input
+                    type="number"
+                    id="tableNumber"
+                    th:field="*{tableNumber}"
+                    min="1"
+                    placeholder="Enter table number"
+                    required>
+
+            </div>
+
+
+            <!-- SEATS -->
+
+<div class="form-group">
+
+    <label for="seats">
+        Number of Seats
+    </label>
+
+    <select
+        id="seats"
+        th:field="*{seats}"
+        required>
+
+        <option value="2">
+            2 Persons
+        </option>
+
+        <option value="4">
+            4 Persons
+        </option>
+
+        <option value="6">
+            6 Persons
+        </option>
+
+        <option value="8">
+            8 Persons
+        </option>
+
+    </select>
+
+</div>
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="booking-button">
+
+                Save Table
+
+            </button>
+
+
+            <!-- BACK -->
+
+            <a
+                href="/admin/tables"
+                class="btn-back">
+
+                ← Back to Tables
+
+            </a>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

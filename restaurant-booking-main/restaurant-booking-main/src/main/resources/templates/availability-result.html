@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title th:text="${restaurant.name} + ' - Availability'">
+        Table Availability - FoodBook
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/#restaurants">
+            Restaurants
+        </a>
+
+        <a href="/#about">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- AVAILABILITY RESULT -->
+
+<section class="availability-section">
+
+    <div class="availability-container">
+
+
+        <!-- RESTAURANT INFORMATION -->
+
+        <div class="availability-restaurant">
+
+            <h1 th:text="${restaurant.name}">
+                Restaurant Name
+            </h1>
+
+            <div class="availability-rating">
+
+                ⭐
+
+                <strong th:text="${restaurant.rating}">
+                    4.5
+                </strong>
+
+                <span>
+                    / 5
+                </span>
+
+            </div>
+
+            <p class="availability-location">
+
+                📍
+
+                <span th:text="${restaurant.location}">
+                    Location
+                </span>
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- TABLE AVAILABLE -->
+        <!-- ================================= -->
+
+        <div class="availability-success"
+             th:if="${available}">
+
+            <div class="result-icon">
+                ✅
+            </div>
+
+            <p class="availability-label">
+                GREAT NEWS
+            </p>
+
+            <h2>
+                Table Available!
+            </h2>
+
+            <p class="availability-message"
+               th:text="${message}">
+
+                A suitable table is available.
+
+            </p>
+
+
+
+            <!-- TABLE INFORMATION -->
+
+            <div class="selected-table">
+
+                <p class="section-label">
+                    YOUR TABLE
+                </p>
+
+                <div class="available-table-number">
+
+                    🪑
+
+                    <strong
+                        th:text="${availableTable.tableNumber}">
+                        1
+                    </strong>
+
+                </div>
+
+                <p>
+
+                    👥
+
+                    <strong
+                        th:text="${availableTable.seats}">
+                        2
+                    </strong>
+
+                    Persons
+
+                </p>
+
+            </div>
+
+
+
+            <!-- BOOKING SUMMARY -->
+
+            <div class="booking-summary">
+
+                <h3>
+                    Reservation Details
+                </h3>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Customer
+                    </span>
+
+                    <strong
+                        th:text="${booking.customerName}">
+                        Ajay
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong
+                        th:text="${booking.email}">
+                        email@example.com
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Phone
+                    </span>
+
+                    <strong
+                        th:text="${booking.phone}">
+                        9876543210
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Date
+                    </span>
+
+                    <strong
+                        th:text="${booking.bookingDate}">
+                        30/08/2026
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Time
+                    </span>
+
+                    <strong
+                        th:text="${booking.bookingTime}">
+                        19:30
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Guests
+                    </span>
+
+                    <strong
+                        th:text="${booking.guests}">
+                        2
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONFIRM BOOKING -->
+
+            <form th:action="@{/restaurant/{id}/confirm-booking(id=${restaurant.id})}"
+                  th:object="${booking}"
+                  method="post">
+
+
+                <input type="hidden"
+                       th:field="*{customerName}">
+
+                <input type="hidden"
+                       th:field="*{email}">
+
+                <input type="hidden"
+                       th:field="*{phone}">
+
+                <input type="hidden"
+                       th:field="*{bookingDate}">
+
+                <input type="hidden"
+                       th:field="*{bookingTime}">
+
+                <input type="hidden"
+                       th:field="*{guests}">
+
+                <input type="hidden"
+                       th:field="*{restaurantId}">
+
+                <input type="hidden"
+                       th:field="*{tableId}">
+
+
+                <button type="submit"
+                        class="booking-button">
+
+                    ✅ Confirm Booking
+
+                </button>
+
+            </form>
+
+
+            <p class="confirmation-note">
+
+                Your table will be reserved only after
+                you confirm the booking.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- TABLE NOT AVAILABLE -->
+        <!-- ================================= -->
+
+        <div class="availability-error"
+             th:unless="${available}">
+
+            <div class="result-icon">
+                ❌
+            </div>
+
+            <p class="availability-label">
+                SORRY
+            </p>
+
+            <h2>
+                Table Not Available
+            </h2>
+
+            <p class="availability-message"
+               th:text="${message}">
+
+                All suitable tables are currently booked.
+
+            </p>
+
+
+            <div class="unavailable-info">
+
+                <p>
+
+                    👥
+
+                    <strong
+                        th:text="${booking.guests}">
+                        2
+                    </strong>
+
+                    person table
+
+                </p>
+
+                <p>
+
+                    📅
+
+                    <strong
+                        th:text="${booking.bookingDate}">
+                        Date
+                    </strong>
+
+                </p>
+
+                <p>
+
+                    🕐
+
+                    <strong
+                        th:text="${booking.bookingTime}">
+                        Time
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <p class="try-again-text">
+
+                Please choose another date or time.
+                We would be happy to help you find
+                another available table.
+
+            </p>
+
+
+            <a th:href="@{/restaurant/{id}/book(id=${restaurant.id})}"
+               class="booking-button">
+
+                🔄 Try Another Time
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

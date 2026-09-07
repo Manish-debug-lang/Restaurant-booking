@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Restaurant - FoodBook Admin</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/admin">
+            Dashboard
+        </a>
+
+        <a href="/admin/restaurants">
+            Restaurants
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- ADD RESTAURANT -->
+
+<section class="booking-section">
+
+    <div class="booking-form-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            Add Restaurant
+        </h1>
+
+        <p class="form-subtitle">
+            Add a new restaurant to FoodBook.
+        </p>
+
+
+        <!-- FORM -->
+
+        <form
+            th:action="@{/admin/restaurants/save}"
+            th:object="${restaurant}"
+            method="post">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label for="name">
+                    Restaurant Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    th:field="*{name}"
+                    placeholder="Enter restaurant name"
+                    required>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="form-group">
+
+                <label for="location">
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    th:field="*{location}"
+                    placeholder="Enter restaurant location"
+                    required>
+
+            </div>
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    th:field="*{description}"
+                    rows="5"
+                    placeholder="Enter restaurant description"
+                    required></textarea>
+
+            </div>
+
+
+            <!-- IMAGE URL -->
+
+            <div class="form-group">
+
+                <label for="imageUrl">
+                    Image URL
+                </label>
+
+                <input
+                    type="url"
+                    id="imageUrl"
+                    th:field="*{imageUrl}"
+                    placeholder="https://example.com/restaurant.jpg"
+                    required>
+
+            </div>
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="booking-button">
+
+                Save Restaurant
+
+            </button>
+
+
+            <!-- CANCEL -->
+
+            <a
+                href="/admin/restaurants"
+                class="btn-back">
+
+                ← Back to Restaurants
+
+            </a>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

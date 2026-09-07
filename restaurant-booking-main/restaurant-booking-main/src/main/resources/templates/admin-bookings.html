@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bookings - FoodBook Admin</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+    <a href="/">
+        Home
+    </a>
+
+    <a href="/admin">
+        Dashboard
+    </a>
+
+    <a href="/admin/restaurants">
+        Restaurants
+    </a>
+
+    <a href="/admin/tables">
+        Tables
+    </a>
+
+    <a href="/admin/bookings">
+        Bookings
+    </a>
+
+    <a href="/admin/menu">
+        Menu
+    </a>
+
+    <a href="/admin/photos">
+        Photos
+    </a>
+
+    <a href="/admin/reviews">
+        Reviews
+    </a>
+
+    <form th:action="@{/admin/logout}"
+          method="post"
+          style="display: inline;">
+
+        <button type="submit"
+                class="admin-logout-button">
+
+            Logout
+
+        </button>
+
+    </form>
+
+</nav>
+
+</header>
+
+
+<!-- BOOKINGS -->
+
+<section class="admin-section">
+
+    <div class="admin-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            All Bookings
+        </h1>
+
+        <p class="admin-subtitle">
+            View all restaurant table reservations.
+        </p>
+
+
+        <!-- BOOKING TABLE -->
+
+        <div class="admin-table-container">
+
+            <table class="admin-table">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Restaurant</th>
+            <th>Table</th>
+            <th>Guests</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+
+        <tr th:each="booking : ${bookings}">
+
+            <!-- ID -->
+            <td th:text="${booking.id}">
+                1
+            </td>
+
+
+            <!-- Customer -->
+            <td th:text="${booking.customerName}">
+                Customer
+            </td>
+
+
+            <!-- Email -->
+            <td th:text="${booking.email}">
+                email@gmail.com
+            </td>
+
+
+            <!-- Phone -->
+            <td th:text="${booking.phone}">
+                0000000000
+            </td>
+
+
+            <!-- Restaurant -->
+            <td>
+
+                <span
+                    th:if="${booking.restaurantId != null}"
+                    th:text="${restaurantNames[booking.restaurantId]}">
+
+                    Restaurant
+
+                </span>
+
+                <span
+                    th:unless="${booking.restaurantId != null}">
+
+                    -
+
+                </span>
+
+            </td>
+
+
+            <!-- Table -->
+            <td>
+
+                <span
+                    th:if="${booking.tableId != null}"
+                    th:text="'Table ' + ${tableNumbers[booking.tableId]}">
+
+                    Table
+
+                </span>
+
+                <span
+                    th:unless="${booking.tableId != null}">
+
+                    -
+
+                </span>
+
+            </td>
+
+
+            <!-- Guests -->
+            <td th:text="${booking.guests}">
+                2
+            </td>
+
+
+            <!-- Date -->
+            <td th:text="${booking.bookingDate}">
+                2026-08-29
+            </td>
+
+
+            <!-- Time -->
+            <td>
+
+                <span th:text="${booking.bookingTime}">
+                    16:00
+                </span>
+
+                -
+
+                <span th:text="${booking.bookingEndTime}">
+                    17:00
+                </span>
+
+            </td>
+
+
+            <!-- STATUS -->
+            <td>
+
+                <span
+                    th:if="${booking.status == 'CONFIRMED'}"
+                    style="color: green; font-weight: bold;">
+
+                    CONFIRMED
+
+                </span>
+
+                <span
+                    th:if="${booking.status == 'CANCELLED'}"
+                    style="color: red; font-weight: bold;">
+
+                    CANCELLED
+
+                </span>
+
+            </td>
+
+
+            <!-- ACTION -->
+            <td>
+
+                <!-- Cancel confirmed booking -->
+                <form
+                    th:if="${booking.status == 'CONFIRMED'}"
+                    th:action="@{/admin/bookings/{id}/cancel(id=${booking.id})}"
+                    method="post">
+
+                    <button
+                        type="submit"
+                        class="cancel-button"
+                        onclick="return confirm('Are you sure you want to cancel this booking?');">
+
+                        Cancel
+
+                    </button>
+
+                </form>
+
+
+                <!-- Already cancelled -->
+                <span
+                    th:if="${booking.status == 'CANCELLED'}"
+                    style="color: red; font-weight: bold;">
+
+                    CANCELLED
+
+                </span>
+
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+            <!-- NO BOOKINGS -->
+
+            <div
+                th:if="${#lists.isEmpty(bookings)}"
+                class="no-reviews">
+
+                <p>
+                    📅 No bookings found.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

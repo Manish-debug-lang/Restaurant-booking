@@ -1,0 +1,2485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+
+    background-color: #f8f8f8;
+
+    color: #222;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    height: 70px;
+
+    background-color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    box-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.logo {
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+
+.navbar nav {
+    display: flex;
+
+    gap: 30px;
+}
+
+
+.navbar nav a {
+    text-decoration: none;
+
+    color: #333;
+
+    font-weight: 500;
+}
+
+
+.navbar nav a:hover {
+    color: #e85d04;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    min-height: 560px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.58),
+            rgba(0, 0, 0, 0.58)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4")
+        center/cover;
+}
+
+
+.hero-content {
+    max-width: 750px;
+
+    color: white;
+
+    padding: 30px;
+}
+
+
+.hero-small {
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.hero h1 {
+    font-size: 58px;
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+
+.hero p:not(.hero-small) {
+    font-size: 19px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.btn {
+    display: inline-block;
+
+    background-color: #e85d04;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 14px 30px;
+
+    border-radius: 6px;
+
+    font-weight: bold;
+}
+
+
+.btn:hover {
+    background-color: #d94801;
+}
+
+
+/* =========================
+   SECTION
+   ========================= */
+
+.restaurants-section {
+    padding: 80px 8%;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+
+.section-label {
+    color: #e85d04;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.section-heading h2 {
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+
+.section-heading > p:last-child {
+    color: #777;
+}
+
+
+/* =========================
+   RESTAURANT CARDS
+   ========================= */
+
+.restaurant-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 30px;
+}
+
+
+.restaurant-card {
+    background-color: white;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+
+    transition: 0.2s;
+}
+
+
+.image-container {
+    width: 100%;
+
+    height: 220px;
+
+    overflow: hidden;
+}
+
+
+.image-container img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.restaurant-content {
+    padding: 25px;
+}
+
+
+.restaurant-content h3 {
+    font-size: 23px;
+
+    margin-bottom: 8px;
+}
+
+
+.location {
+    color: #e85d04;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+
+.description {
+    color: #666;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   SMALL BUTTON
+   ========================= */
+
+.btn-small {
+    display: inline-block;
+
+    background-color: #222;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+.btn-small:hover {
+    background-color: #e85d04;
+}
+
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.about-section {
+    background-color: white;
+
+    padding: 80px 15%;
+
+    text-align: center;
+}
+
+
+.about-section h2 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+.about-section p:last-child {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #666;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    background-color: #222;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+
+    .navbar nav {
+        gap: 12px;
+    }
+
+
+    .navbar nav a {
+        font-size: 14px;
+    }
+
+
+    .hero {
+        min-height: 500px;
+    }
+
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+
+    .hero p:not(.hero-small) {
+        font-size: 17px;
+    }
+
+
+    .restaurants-section {
+        padding: 60px 5%;
+    }
+
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+}
+
+/* =========================
+   RESTAURANT DETAILS
+   ========================= */
+
+.details-section {
+    min-height: calc(100vh - 140px);
+
+    padding: 80px 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.details-container {
+    width: 100%;
+
+    max-width: 1100px;
+
+    background-color: white;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.details-image {
+    min-height: 450px;
+}
+
+
+.details-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.details-content {
+    padding: 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.details-content h1 {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+
+.details-location {
+    color: #e85d04;
+
+    font-weight: bold;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+}
+
+
+.details-description {
+    color: #666;
+
+    font-size: 17px;
+
+    margin-bottom: 30px;
+}
+
+
+@media (max-width: 700px) {
+
+    .details-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .details-image {
+        min-height: 300px;
+    }
+
+
+    .details-content {
+        padding: 35px;
+    }
+
+
+    .details-content h1 {
+        font-size: 32px;
+    }
+
+}
+
+/* =========================
+   BOOKING PAGE
+   ========================= */
+
+.booking-section {
+    min-height: calc(100vh - 140px);
+
+    padding: 70px 8%;
+
+    background-color: #f8f8f8;
+}
+
+
+.booking-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    background-color: white;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/* RESTAURANT INFORMATION */
+
+.booking-restaurant {
+    background-color: #222;
+
+    color: white;
+}
+
+
+.booking-restaurant > img {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+}
+
+
+.booking-restaurant-info {
+    padding: 35px;
+}
+
+
+.booking-restaurant-info h1 {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+
+.booking-restaurant-info > p:last-child {
+    color: #ccc;
+
+    margin-top: 20px;
+}
+
+
+/* FORM */
+
+.booking-form-container {
+    padding: 45px;
+}
+
+
+.booking-form-container h2 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.form-subtitle {
+    color: #777;
+
+    margin-bottom: 30px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+.form-group input:focus {
+    border-color: #e85d04;
+}
+
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* BOOK BUTTON */
+
+.booking-button {
+    width: 100%;
+
+    border: none;
+
+    background-color: #e85d04;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.booking-button:hover {
+    background-color: #d94801;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .booking-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .booking-restaurant > img {
+        height: 250px;
+    }
+
+
+    .booking-form-container {
+        padding: 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   BOOKING SUCCESS
+   ========================= */
+
+.success-section {
+    min-height: calc(100vh - 140px);
+
+    padding: 70px 20px;
+
+    background-color: #f8f8f8;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.success-card {
+    width: 100%;
+
+    max-width: 650px;
+
+    background-color: white;
+
+    padding: 55px;
+
+    text-align: center;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.success-icon {
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    background-color: #e85d04;
+
+    color: white;
+
+    font-size: 40px;
+
+    font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.success-card h1 {
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+.success-card > p {
+    color: #666;
+
+    margin-bottom: 8px;
+}
+
+
+.booking-summary {
+    margin: 30px 0;
+
+    padding: 20px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 10px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    text-align: left;
+}
+
+
+.booking-summary div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.booking-summary span {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.booking-summary strong {
+    color: #222;
+
+    font-size: 16px;
+}
+
+
+@media (max-width: 600px) {
+
+    .success-card {
+        padding: 35px 20px;
+    }
+
+
+    .success-card h1 {
+        font-size: 30px;
+    }
+
+
+    .booking-summary {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+.details-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+}
+
+
+.btn-back {
+    display: inline-block;
+
+    color: #333;
+
+    text-decoration: none;
+
+    padding: 14px 20px;
+
+    font-weight: bold;
+}
+
+
+.btn-back:hover {
+    color: #e85d04;
+}
+
+
+@media (max-width: 600px) {
+
+    .details-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+}
+
+/* =========================
+   RESTAURANT TABLES
+   ========================= */
+
+.tables-section {
+    padding: 80px 20px;
+
+    background-color: #f8f8f8;
+}
+
+
+.tables-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.tables-container h2 {
+    font-size: 36px;
+
+    margin-bottom: 10px;
+}
+
+
+.tables-description {
+    color: #666;
+
+    margin-bottom: 40px;
+}
+
+
+.table-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+
+.table-card {
+    background-color: white;
+
+    padding: 30px 20px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.table-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.table-icon {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+
+.table-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+
+.table-card p {
+    color: #666;
+
+    margin-bottom: 15px;
+}
+
+
+.table-status {
+    display: inline-block;
+
+    font-size: 12px;
+
+    color: #777;
+
+    background-color: #f1f1f1;
+
+    padding: 7px 10px;
+
+    border-radius: 20px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .table-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .table-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.booking-error {
+    background-color: #fff1f0;
+
+    color: #c0392b;
+
+    border: 1px solid #f5b7b1;
+
+    padding: 14px 16px;
+
+    border-radius: 8px;
+
+    margin: 20px 0;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+/* =========================
+   AVAILABILITY RESULT
+   ========================= */
+
+.availability-section {
+    min-height: 70vh;
+
+    padding: 80px 20px;
+
+    background-color: #f8f8f8;
+}
+
+
+.availability-container {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.availability-container h1 {
+    font-size: 36px;
+
+    margin-bottom: 10px;
+}
+
+
+.availability-location {
+    color: #666;
+
+    margin-bottom: 35px;
+}
+
+
+.availability-success,
+.availability-error {
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.availability-success h2,
+.availability-error h2 {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+}
+
+
+.result-icon {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+.selected-table {
+    margin: 30px auto;
+
+    padding: 20px;
+
+    max-width: 300px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 10px;
+}
+
+
+.selected-table h3 {
+    margin-bottom: 15px;
+}
+
+
+.selected-table p {
+    margin: 8px 0;
+
+    color: #555;
+}
+
+
+.booking-summary {
+    text-align: left;
+
+    max-width: 400px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-top: 1px solid #ddd;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.booking-summary p {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 10px 0;
+}
+
+
+.availability-error {
+    border-top: 4px solid #e74c3c;
+}
+
+
+.availability-error p {
+    color: #666;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+}
+
+
+.availability-container .booking-button {
+    display: inline-block;
+
+    border: none;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    margin-top: 15px;
+}
+
+/* =========================
+   RESTAURANT RATING
+   ========================= */
+
+.restaurant-rating {
+    margin: 10px 0 15px;
+
+    font-size: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+}
+
+.restaurant-rating strong {
+    font-size: 17px;
+}
+
+.restaurant-rating span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+/* =========================
+   DETAILS RATING
+   ========================= */
+
+.details-rating {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin: 12px 0;
+
+    font-size: 18px;
+}
+
+.details-rating span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   RESTAURANT PHOTOS
+   ========================= */
+
+.photos-section {
+    padding: 70px 20px;
+
+    background-color: #ffffff;
+}
+
+.photos-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.photos-container h2 {
+    font-size: 34px;
+
+    margin-bottom: 10px;
+}
+
+.photos-description {
+    color: #666;
+
+    margin-bottom: 35px;
+}
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.photo-card {
+    height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+.photo-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   CUSTOMER FEEDBACK
+   ========================= */
+
+.feedback-section {
+    padding: 70px 20px;
+
+    background-color: #f8f8f8;
+}
+
+.feedback-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.feedback-container h2 {
+    font-size: 34px;
+
+    margin-bottom: 35px;
+}
+
+.feedback-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.feedback-card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.07);
+
+    text-align: left;
+}
+
+.feedback-rating {
+    margin-bottom: 15px;
+
+    font-size: 16px;
+}
+
+.feedback-card p {
+    color: #555;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   MENU
+   ========================= */
+
+.menu-section {
+    padding: 70px 20px;
+
+    background-color: white;
+}
+
+.menu-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.menu-container h2 {
+    font-size: 34px;
+
+    margin-bottom: 35px;
+}
+
+.menu-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.menu-card {
+    display: grid;
+
+    grid-template-columns:
+        60px 1fr auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border: 1px solid #eee;
+
+    border-radius: 12px;
+
+    text-align: left;
+}
+
+.menu-icon {
+    font-size: 38px;
+}
+
+.menu-card h3 {
+    margin-bottom: 6px;
+}
+
+.menu-card p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.menu-card > strong {
+    font-size: 17px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* =========================
+   TABLE INFORMATION
+   ========================= */
+
+.table-capacity {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.table-info {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #777;
+    line-height: 1.4;
+}
+
+.tables-booking-button {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* =========================
+   BOOKING RATING
+   ========================= */
+
+.booking-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0 15px;
+    font-size: 18px;
+}
+
+.booking-rating span {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* =========================
+   BOOKING FORM HELP TEXT
+   ========================= */
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    color: #777;
+    font-size: 12px;
+}
+
+
+/* =========================
+   BOOKING ERROR
+   ========================= */
+
+.booking-error {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background-color: #fff1f1;
+    color: #c0392b;
+}
+
+/* =========================
+   AVAILABILITY PAGE
+   ========================= */
+
+.availability-restaurant {
+    margin-bottom: 30px;
+}
+
+.availability-restaurant h1 {
+    margin-bottom: 8px;
+}
+
+.availability-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 8px 0;
+}
+
+.availability-rating span {
+    color: #777;
+    font-size: 14px;
+}
+
+.availability-label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.availability-message {
+    color: #555;
+    line-height: 1.6;
+    margin: 15px auto;
+    max-width: 550px;
+}
+
+
+/* =========================
+   SELECTED TABLE
+   ========================= */
+
+.selected-table {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 300px;
+    border-radius: 12px;
+    background-color: #f8f8f8;
+}
+
+.available-table-number {
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.selected-table > p:last-child {
+    color: #666;
+}
+
+
+/* =========================
+   BOOKING SUMMARY
+   ========================= */
+
+.booking-summary {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    text-align: left;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.booking-summary h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-row span {
+    color: #777;
+}
+
+.summary-row strong {
+    text-align: right;
+    word-break: break-word;
+}
+
+
+/* =========================
+   CONFIRMATION NOTE
+   ========================= */
+
+.confirmation-note {
+    margin-top: 15px;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* =========================
+   NOT AVAILABLE
+   ========================= */
+
+.availability-error {
+    padding: 40px;
+}
+
+.unavailable-info {
+    max-width: 350px;
+    margin: 25px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+}
+
+.unavailable-info p {
+    margin: 10px 0;
+}
+
+.try-again-text {
+    color: #666;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* =========================
+   BOOKING SUCCESS PAGE
+   ========================= */
+
+.success-section {
+    min-height: 75vh;
+
+    padding: 70px 20px;
+
+    background-color: #f8f8f8;
+}
+
+
+.success-card {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    padding: 45px;
+
+    background-color: white;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+.success-icon {
+    width: 70px;
+
+    height: 70px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    background-color: #e8f8ee;
+
+    color: #27ae60;
+}
+
+
+.success-card h1 {
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+
+.success-message {
+    color: #555;
+
+    line-height: 1.6;
+}
+
+
+/* BOOKING ID */
+
+.booking-id-box {
+    margin: 30px auto;
+
+    padding: 18px;
+
+    max-width: 250px;
+
+    background-color: #f8f8f8;
+
+    border-radius: 10px;
+}
+
+
+.booking-id-box span {
+    display: block;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.booking-id-box strong {
+    font-size: 24px;
+}
+
+
+/* BOOKING SUMMARY */
+
+.success-card .booking-summary {
+    margin: 25px auto;
+
+    padding: 20px;
+
+    text-align: left;
+
+    border-top: 1px solid #ddd;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+.success-card .booking-summary > div {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.success-card .booking-summary > div:last-child {
+    border-bottom: none;
+}
+
+
+.success-card .booking-summary span {
+    color: #777;
+}
+
+
+.success-card .booking-summary strong {
+    text-align: right;
+
+    word-break: break-word;
+}
+
+
+/* RESERVATION MESSAGE */
+
+.reservation-message {
+    margin: 25px 0;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background-color: #f8f8f8;
+}
+
+
+.reservation-message span {
+    font-size: 25px;
+}
+
+
+.reservation-message p {
+    margin: 8px 0 0;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .success-card {
+        padding: 30px 20px;
+    }
+
+    .success-card h1 {
+        font-size: 26px;
+    }
+
+    .success-card .booking-summary > div {
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+    .success-card .booking-summary strong {
+        text-align: left;
+    }
+
+}
+
+/* ================================
+   RESTAURANT PHOTOS
+================================ */
+
+.photos-section {
+    padding: 80px 20px;
+    background: #ffffff;
+}
+
+.photos-container {
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.photos-container h2 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.photos-description {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.photo-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-card p {
+    padding: 15px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.no-photos {
+    padding: 30px;
+    color: #666;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card img {
+        height: 250px;
+    }
+
+}
+
+/* ==========================================
+   ADMIN DASHBOARD
+   ========================================== */
+
+.admin-section {
+    min-height: 70vh;
+    padding: 80px 20px;
+    background: #f8f8f8;
+}
+
+.admin-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.admin-container h1 {
+    font-size: 42px;
+    margin: 10px 0;
+    color: #111827;
+}
+
+.admin-subtitle {
+    color: #666;
+    margin-bottom: 50px;
+}
+
+
+/* ==========================================
+   ADMIN STAT CARDS
+   ========================================== */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.admin-card {
+    background: white;
+    padding: 35px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+}
+
+.admin-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.admin-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.admin-card strong {
+    display: block;
+    font-size: 36px;
+    color: #111;
+    margin-top: 10px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .admin-section {
+        padding: 50px 15px;
+    }
+
+    .admin-container h1 {
+        font-size: 32px;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==========================================
+   ADMIN BOOKINGS TABLE
+   ========================================== */
+
+.admin-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+.admin-table th {
+    background: #f5f5f5;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table td {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #555;
+}
+
+.admin-table tbody tr:hover {
+    background: #fafafa;
+}
+
+/* ==========================================
+   ADMIN CANCEL BUTTON
+   ========================================== */
+
+.cancel-button {
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    background: #e74c3c;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.cancel-button:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+}
+
+.admin-table td form {
+    margin: 0;
+}
+
+/* ==========================================
+   ADMIN DASHBOARD MANAGEMENT
+   ========================================== */
+
+.admin-management {
+    margin-top: 50px;
+}
+
+.admin-management h2 {
+    margin-bottom: 25px;
+}
+
+.management-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.management-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px;
+    background: white;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease;
+}
+
+.management-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.management-card > span {
+    font-size: 32px;
+}
+
+.management-card h3 {
+    margin: 0 0 6px;
+}
+
+.management-card p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+.admin-card-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.admin-card-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   RESPONSIVE ADMIN DASHBOARD
+   ========================================== */
+
+@media (max-width: 900px) {
+
+    .management-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .management-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.admin-logout-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: inherit;
+    padding: 0;
+}
+
+.admin-logout-button:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================
+   DELETE CONFIRMATION
+   ========================================== */
+
+.delete-confirm-card {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 35px;
+    background: white;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.delete-confirm-card h2 {
+    margin: 15px 0;
+}
+
+.delete-warning {
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+.delete-list {
+    text-align: left;
+    max-width: 300px;
+    margin: 15px auto 30px;
+    line-height: 1.8;
+}
+
+.delete-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.delete-actions form {
+    margin: 0;
+}
+
+/* ==========================================
+   ADMIN MENU IMAGE
+   ========================================== */
+
+.admin-menu-image {
+    width: 90px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ==========================================
+   ADMIN PHOTO IMAGE
+   ========================================== */
+
+.admin-photo-image {
+    width: 140px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* ================================
+       NAVBAR
+       ================================ */
+
+    .navbar {
+        height: auto;
+        min-height: 70px;
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .navbar .logo {
+        font-size: 22px;
+    }
+
+    .navbar nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .navbar nav a {
+        font-size: 14px;
+    }
+
+
+    /* ================================
+       ADMIN SECTION
+       ================================ */
+
+    .admin-section {
+        padding: 35px 15px;
+    }
+
+    .admin-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .admin-container h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .admin-subtitle {
+        text-align: center;
+        font-size: 14px;
+    }
+
+
+    /* ================================
+       BOOKING TABLE
+       Convert table into mobile cards
+       ================================ */
+
+    .admin-table-container {
+        width: 100%;
+        overflow: visible;
+        box-shadow: none;
+    }
+
+    .admin-table {
+        width: 100%;
+        display: block;
+    }
+
+    .admin-table thead {
+        display: none;
+    }
+
+    .admin-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .admin-table tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+    }
+
+    .admin-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        min-width: 0;
+        padding: 10px 0;
+        border: none;
+        border-bottom: 1px solid #eeeeee;
+        text-align: right;
+        font-size: 14px;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .admin-table td:last-child {
+        border-bottom: none;
+    }
+
+
+    /* Labels for each booking field */
+
+    .admin-table td:nth-child(1)::before {
+        content: "Booking ID";
+    }
+
+    .admin-table td:nth-child(2)::before {
+        content: "Customer";
+    }
+
+    .admin-table td:nth-child(3)::before {
+        content: "Email";
+    }
+
+    .admin-table td:nth-child(4)::before {
+        content: "Phone";
+    }
+
+    .admin-table td:nth-child(5)::before {
+        content: "Restaurant";
+    }
+
+    .admin-table td:nth-child(6)::before {
+        content: "Table";
+    }
+
+    .admin-table td:nth-child(7)::before {
+        content: "Guests";
+    }
+
+    .admin-table td:nth-child(8)::before {
+        content: "Date";
+    }
+
+    .admin-table td:nth-child(9)::before {
+        content: "Time";
+    }
+
+    .admin-table td:nth-child(10)::before {
+        content: "Status";
+    }
+
+    .admin-table td:nth-child(11)::before {
+        content: "Action";
+    }
+
+    .admin-table td::before {
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
+
+
+    /* Customer name */
+
+    .admin-table td:nth-child(2) {
+        font-weight: 600;
+    }
+
+
+    /* Email */
+
+    .admin-table td:nth-child(3) {
+        word-break: break-word;
+    }
+
+
+    /* Status */
+
+    .admin-table td:nth-child(10) {
+        align-items: center;
+    }
+
+
+    /* Cancel button */
+
+    .admin-table td:nth-child(11) {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cancel-button {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+
+
+    /* ================================
+       RESTAURANT IMAGES
+       ================================ */
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .restaurant-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .booking-restaurant img {
+        width: 100%;
+        max-width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+
+    /* ================================
+       RESTAURANT CARDS
+       ================================ */
+
+    .restaurant-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* ================================
+       BOOKING PAGE
+       ================================ */
+
+    .booking-section {
+        padding: 25px 15px;
+    }
+
+    .booking-container {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .booking-restaurant {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .booking-restaurant-info {
+        width: 100%;
+    }
+
+    .booking-form-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+
+}

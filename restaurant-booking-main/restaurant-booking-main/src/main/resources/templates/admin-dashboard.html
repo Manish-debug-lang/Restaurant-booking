@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - FoodBook</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/admin">
+            Dashboard
+        </a>
+
+        <a href="/admin/restaurants">
+            Restaurants
+        </a>
+
+        <a href="/admin/tables">
+            Tables
+        </a>
+
+        <a href="/admin/bookings">
+            Bookings
+        </a>
+
+        <a href="/admin/menu">
+            Menu
+        </a>
+
+        <a href="/admin/photos">
+            Photos
+        </a>
+
+        <a href="/admin/reviews">
+            Reviews
+        </a>
+
+    </nav>
+    <form th:action="@{/admin/logout}"
+      method="post"
+      style="display: inline;">
+
+    <button type="submit"
+            class="admin-logout-button">
+
+        Logout
+
+    </button>
+
+</form>
+
+</header>
+
+
+<!-- ADMIN DASHBOARD -->
+
+<section class="admin-section">
+
+    <div class="admin-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            Dashboard
+        </h1>
+
+        <p class="admin-subtitle">
+            Manage your FoodBook restaurant booking system.
+        </p>
+
+
+        <!-- STAT CARDS -->
+
+        <div class="admin-stats">
+
+
+            <!-- RESTAURANTS -->
+
+            <div class="admin-card">
+
+                <div class="admin-icon">
+                    🏨
+                </div>
+
+                <h3>
+                    Restaurants
+                </h3>
+
+                <strong th:text="${totalRestaurants}">
+                    0
+                </strong>
+
+                <a href="/admin/restaurants"
+                   class="admin-card-link">
+
+                    Manage Restaurants →
+
+                </a>
+
+            </div>
+
+
+            <!-- TABLES -->
+
+            <div class="admin-card">
+
+                <div class="admin-icon">
+                    🪑
+                </div>
+
+                <h3>
+                    Tables
+                </h3>
+
+                <strong th:text="${totalTables}">
+                    0
+                </strong>
+
+                <a href="/admin/tables"
+                   class="admin-card-link">
+
+                    Manage Tables →
+
+                </a>
+
+            </div>
+
+
+            <!-- BOOKINGS -->
+
+            <div class="admin-card">
+
+                <div class="admin-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Bookings
+                </h3>
+
+                <strong th:text="${totalBookings}">
+                    0
+                </strong>
+
+                <a href="/admin/bookings"
+                   class="admin-card-link">
+
+                    Manage Bookings →
+
+                </a>
+
+            </div>
+
+
+            <!-- REVIEWS -->
+
+            <div class="admin-card">
+
+                <div class="admin-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Reviews
+                </h3>
+
+                <strong th:text="${totalReviews}">
+                    0
+                </strong>
+
+                <a href="/admin/reviews"
+                   class="admin-card-link">
+
+                    Manage Reviews →
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MANAGEMENT SECTION -->
+
+        <div class="admin-management">
+
+            <p class="section-label">
+                MANAGEMENT
+            </p>
+
+            <h2>
+                FoodBook Management
+            </h2>
+
+
+            <div class="management-grid">
+
+
+                <!-- RESTAURANTS -->
+
+                <a href="/admin/restaurants"
+                   class="management-card">
+
+                    <span>
+                        🏨
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Restaurants
+                        </h3>
+
+                        <p>
+                            Add and manage restaurants.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- TABLES -->
+
+                <a href="/admin/tables"
+                   class="management-card">
+
+                    <span>
+                        🪑
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Tables
+                        </h3>
+
+                        <p>
+                            Manage table numbers and seats.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- BOOKINGS -->
+
+                <a href="/admin/bookings"
+                   class="management-card">
+
+                    <span>
+                        📅
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Bookings
+                        </h3>
+
+                        <p>
+                            View and cancel bookings.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- MENU -->
+
+                <a href="/admin/menu"
+                   class="management-card">
+
+                    <span>
+                        🍽️
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Menu
+                        </h3>
+
+                        <p>
+                            Add and manage menu items.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- PHOTOS -->
+
+                <a href="/admin/photos"
+                   class="management-card">
+
+                    <span>
+                        📸
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Photos
+                        </h3>
+
+                        <p>
+                            Manage restaurant gallery photos.
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- REVIEWS -->
+
+                <a href="/admin/reviews"
+                   class="management-card">
+
+                    <span>
+                        ⭐
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Reviews
+                        </h3>
+
+                        <p>
+                            Manage customer reviews.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

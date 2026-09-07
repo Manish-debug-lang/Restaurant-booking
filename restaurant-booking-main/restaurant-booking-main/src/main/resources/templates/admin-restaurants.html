@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurants - FoodBook Admin</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+    <a href="/">
+        Home
+    </a>
+
+    <a href="/admin">
+        Dashboard
+    </a>
+
+    <a href="/admin/restaurants">
+        Restaurants
+    </a>
+
+    <a href="/admin/tables">
+        Tables
+    </a>
+
+    <a href="/admin/bookings">
+        Bookings
+    </a>
+
+    <a href="/admin/menu">
+        Menu
+    </a>
+
+    <a href="/admin/photos">
+        Photos
+    </a>
+
+    <a href="/admin/reviews">
+        Reviews
+    </a>
+
+    <form th:action="@{/admin/logout}"
+          method="post"
+          style="display: inline;">
+
+        <button type="submit"
+                class="admin-logout-button">
+
+            Logout
+
+        </button>
+
+    </form>
+
+</nav>
+
+</header>
+
+
+<!-- RESTAURANTS -->
+
+<section class="admin-section">
+
+    <div class="admin-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            Restaurants
+        </h1>
+
+        <p class="admin-subtitle">
+            Manage restaurants in FoodBook.
+        </p>
+
+
+        <!-- ADD RESTAURANT -->
+
+        <div class="admin-action">
+
+            <a href="/admin/restaurants/add"
+               class="btn">
+
+                + Add Restaurant
+
+            </a>
+
+        </div>
+
+
+        <!-- RESTAURANT TABLE -->
+
+        <div class="admin-table-container">
+
+            <table class="admin-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Image
+                        </th>
+
+                        <th>
+                            Restaurant
+                        </th>
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr th:each="restaurant : ${restaurants}">
+
+                        <td th:text="${restaurant.id}">
+                            1
+                        </td>
+
+
+                        <td>
+
+                            <img
+                                th:src="${restaurant.imageUrl}"
+                                th:alt="${restaurant.name}"
+                                class="admin-restaurant-image">
+
+                        </td>
+
+
+                        <td>
+
+                            <strong
+                                th:text="${restaurant.name}">
+
+                                Restaurant
+
+                            </strong>
+
+                        </td>
+
+
+                        <td
+                            th:text="${restaurant.location}">
+
+                            Location
+
+                        </td>
+
+
+                        <td
+                            th:text="${restaurant.description}">
+
+                            Description
+
+                        </td>
+
+
+                        <td>
+
+                            <a
+                                th:href="@{/admin/restaurants/delete/{id}(id=${restaurant.id})}"
+                                class="cancel-button"
+                                onclick="return confirm('Are you sure you want to delete this restaurant?');">
+
+                                Delete
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+            <!-- NO RESTAURANTS -->
+
+            <div
+                th:if="${#lists.isEmpty(restaurants)}"
+                class="no-reviews">
+
+                <p>
+                    🏨 No restaurants found.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

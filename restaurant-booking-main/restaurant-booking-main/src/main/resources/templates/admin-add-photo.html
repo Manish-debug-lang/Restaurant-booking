@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Photo - FoodBook Admin</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/admin">
+            Dashboard
+        </a>
+
+        <a href="/admin/restaurants">
+            Restaurants
+        </a>
+
+        <a href="/admin/tables">
+            Tables
+        </a>
+
+        <a href="/admin/bookings">
+            Bookings
+        </a>
+
+        <a href="/admin/menu">
+            Menu
+        </a>
+
+        <a href="/admin/photos">
+            Photos
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="booking-section">
+
+    <div class="booking-form-container">
+
+        <p class="section-label">
+            ADMIN PANEL
+        </p>
+
+        <h1>
+            Add Restaurant Photo
+        </h1>
+
+        <p class="form-subtitle">
+            Add a photo to a restaurant gallery.
+        </p>
+
+
+        <form
+            th:action="@{/admin/photos/save}"
+            th:object="${photo}"
+            method="post">
+
+
+            <!-- RESTAURANT -->
+
+            <div class="form-group">
+
+                <label for="restaurantId">
+                    Restaurant
+                </label>
+
+                <select
+                    id="restaurantId"
+                    th:field="*{restaurantId}"
+                    required>
+
+                    <option value="">
+                        Select Restaurant
+                    </option>
+
+                    <option
+                        th:each="restaurant : ${restaurants}"
+                        th:value="${restaurant.id}"
+                        th:text="${restaurant.name}">
+
+                        Restaurant
+
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- IMAGE URL -->
+
+            <div class="form-group">
+
+                <label for="imageUrl">
+                    Image URL
+                </label>
+
+                <input
+                    type="url"
+                    id="imageUrl"
+                    th:field="*{imageUrl}"
+                    placeholder="https://example.com/restaurant.jpg"
+                    required>
+
+            </div>
+
+
+            <!-- CAPTION -->
+
+            <div class="form-group">
+
+                <label for="caption">
+                    Caption
+                </label>
+
+                <input
+                    type="text"
+                    id="caption"
+                    th:field="*{caption}"
+                    placeholder="Enter photo caption"
+                    required>
+
+            </div>
+
+
+            <!-- SAVE -->
+
+            <button
+                type="submit"
+                class="booking-button">
+
+                Save Photo
+
+            </button>
+
+
+            <!-- BACK -->
+
+            <a
+                href="/admin/photos"
+                class="btn-back">
+
+                ← Back to Photos
+
+            </a>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>FoodBook - Restaurant Booking</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="#restaurants">
+            Restaurants
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-small">
+            WELCOME TO FOODBOOK
+        </p>
+
+        <h1>
+            Find Your Perfect Table
+        </h1>
+
+        <p>
+            Discover amazing restaurants and
+            reserve your table with ease.
+        </p>
+
+        <a href="#restaurants"
+           class="btn">
+
+            Explore Restaurants
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- RESTAURANT SECTION -->
+
+<section id="restaurants"
+         class="restaurants-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            DISCOVER
+        </p>
+
+        <h2>
+            Popular Restaurants
+        </h2>
+
+        <p>
+            Choose your favorite restaurant
+            and reserve a table.
+        </p>
+
+    </div>
+
+
+
+    <!-- RESTAURANT CARDS -->
+
+    <div class="restaurant-container">
+
+        <div class="restaurant-card"
+             th:each="restaurant : ${restaurants}">
+
+
+            <!-- RESTAURANT IMAGE -->
+
+            <div class="image-container">
+
+                <img th:src="${restaurant.imageUrl}"
+                     th:alt="${restaurant.name}">
+
+            </div>
+
+
+
+            <!-- RESTAURANT INFORMATION -->
+
+            <div class="restaurant-content">
+
+                <h3 th:text="${restaurant.name}">
+
+                    Restaurant Name
+
+                </h3>
+
+
+                <!-- LOCATION -->
+
+                <p class="location">
+
+                    📍
+
+                    <span th:text="${restaurant.location}">
+
+                        Location
+
+                    </span>
+
+                </p>
+
+
+                <!-- RATING -->
+
+                <div class="restaurant-rating">
+
+                    ⭐
+
+                    <strong th:text="${restaurant.rating}">
+                        4.5
+                    </strong>
+
+                    <span>
+                        / 5
+                    </span>
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="description"
+                   th:text="${restaurant.description}">
+
+                    Restaurant description
+
+                </p>
+
+
+                <!-- VIEW RESTAURANT -->
+
+                <a th:href="@{/restaurant/{id}(id=${restaurant.id})}"
+                   class="btn-small">
+
+                    View Restaurant
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section id="about"
+         class="about-section">
+
+    <div>
+
+        <p class="section-label">
+            ABOUT US
+        </p>
+
+        <h2>
+            Good Food. Great Moments.
+        </h2>
+
+        <p>
+            FoodBook makes restaurant table
+            reservations simple and convenient.
+            Find a restaurant, choose your
+            preferred time and enjoy your meal.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

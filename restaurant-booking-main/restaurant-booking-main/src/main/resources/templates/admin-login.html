@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - FoodBook</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook Admin
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+    </nav>
+
+</header>
+
+
+<section class="booking-section">
+
+    <div class="booking-form-container">
+
+        <p class="section-label">
+            FOODBOOK
+        </p>
+
+        <h1>
+            Admin Login
+        </h1>
+
+        <p class="form-subtitle">
+            Login to manage your restaurant booking system.
+        </p>
+
+
+        <!-- LOGIN ERROR -->
+
+        <div
+            th:if="${param.error}"
+            class="error-message">
+
+            <p>
+                ❌ Invalid username or password.
+            </p>
+
+        </div>
+
+
+        <!-- LOGOUT MESSAGE -->
+
+        <div
+            th:if="${param.logout}"
+            class="success-message">
+
+            <p>
+                ✅ You have been logged out successfully.
+            </p>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+
+        <form
+            th:action="@{/admin/login}"
+            method="post">
+
+
+            <!-- USERNAME -->
+
+            <div class="form-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter admin username"
+                    required
+                    autofocus>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter admin password"
+                    required>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="submit"
+                class="booking-button">
+
+                Login
+
+            </button>
+
+        </form>
+
+
+        <!-- BACK -->
+
+        <a
+            href="/"
+            class="btn-back">
+
+            ← Back to Home
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+
+</html>

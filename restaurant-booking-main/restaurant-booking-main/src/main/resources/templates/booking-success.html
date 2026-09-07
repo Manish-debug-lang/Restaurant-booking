@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Booking Confirmed - FoodBook
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍽️ FoodBook
+    </div>
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/#restaurants">
+            Restaurants
+        </a>
+
+        <a href="/#about">
+            About
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- BOOKING SUCCESS -->
+
+<section class="success-section">
+
+    <div class="success-card">
+
+
+        <!-- SUCCESS ICON -->
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <p class="section-label">
+            BOOKING CONFIRMED
+        </p>
+
+
+        <h1>
+            Your Table is Reserved!
+        </h1>
+
+
+        <p class="success-message">
+
+            Thank you,
+
+            <strong th:text="${booking.customerName}">
+                Customer
+            </strong>.
+
+        </p>
+
+
+        <p class="success-message">
+
+            Your table at
+
+            <strong th:text="${restaurant.name}">
+                Restaurant
+            </strong>
+
+            has been successfully booked.
+
+        </p>
+
+
+
+        <!-- BOOKING ID -->
+
+        <div class="booking-id-box">
+
+            <span>
+                Booking ID
+            </span>
+
+            <strong th:text="'#' + ${booking.id}">
+                #15
+            </strong>
+
+        </div>
+
+
+
+        <!-- BOOKING INFORMATION -->
+
+        <div class="booking-summary">
+
+
+            <!-- RESTAURANT -->
+
+            <div>
+
+                <span>
+                    Restaurant
+                </span>
+
+                <strong th:text="${restaurant.name}">
+                    Restaurant Name
+                </strong>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div>
+
+                <span>
+                    Table
+                </span>
+
+                <strong>
+
+    					Table
+
+    					<span th:text="${availableTable.tableNumber}">
+        1
+    					</span>
+
+				</strong>
+
+            </div>
+
+
+            <!-- GUESTS -->
+
+            <div>
+
+                <span>
+                    Guests
+                </span>
+
+                <strong>
+
+                    <span th:text="${booking.guests}">
+                        2
+                    </span>
+
+                    Persons
+
+                </strong>
+
+            </div>
+
+
+            <!-- DATE -->
+
+            <div>
+
+                <span>
+                    Date
+                </span>
+
+                <strong th:text="${booking.bookingDate}">
+                    Date
+                </strong>
+
+            </div>
+
+
+            <!-- TIME -->
+
+            <div>
+
+                <span>
+                    Time
+                </span>
+
+                <strong th:text="${booking.bookingTime}">
+                    Time
+                </strong>
+
+            </div>
+
+
+            <!-- CUSTOMER -->
+
+            <div>
+
+                <span>
+                    Customer
+                </span>
+
+                <strong th:text="${booking.customerName}">
+                    Customer
+                </strong>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div>
+
+                <span>
+                    Email
+                </span>
+
+                <strong th:text="${booking.email}">
+                    Email
+                </strong>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div>
+
+                <span>
+                    Phone
+                </span>
+
+                <strong th:text="${booking.phone}">
+                    Phone
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SUCCESS MESSAGE -->
+
+        <div class="reservation-message">
+
+            <span>
+                🎉
+            </span>
+
+            <p>
+                Your reservation has been successfully
+                confirmed. Please arrive on time.
+            </p>
+
+        </div>
+
+
+		<!-- REVIEW SECTION -->
+
+<div class="review-section">
+
+    <p class="section-label">
+        SHARE YOUR EXPERIENCE
+    </p>
+
+    <h2>
+        How Was Your Experience?
+    </h2>
+
+    <p>
+        Enjoyed your visit?
+        Leave a review for this restaurant.
+    </p>
+
+    <form
+        th:action="@{/restaurant/{id}/review(id=${restaurant.id})}"
+        method="post">
+
+        <!-- CUSTOMER NAME -->
+
+        <div class="form-group">
+
+            <label for="customerName">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                name="customerName"
+                th:value="${booking.customerName}"
+                required>
+
+        </div>
+
+
+        <!-- RATING -->
+
+        <div class="form-group">
+
+            <label for="rating">
+                Your Rating
+            </label>
+
+            <select
+                id="rating"
+                name="rating"
+                required>
+
+                <option value="">
+                    Select Rating
+                </option>
+
+                <option value="5">
+                    ⭐⭐⭐⭐⭐ — Excellent
+                </option>
+
+                <option value="4">
+                    ⭐⭐⭐⭐ — Very Good
+                </option>
+
+                <option value="3">
+                    ⭐⭐⭐ — Good
+                </option>
+
+                <option value="2">
+                    ⭐⭐ — Average
+                </option>
+
+                <option value="1">
+                    ⭐ — Poor
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- COMMENT -->
+
+        <div class="form-group">
+
+            <label for="comment">
+                Your Feedback
+            </label>
+
+            <textarea
+                id="comment"
+                name="comment"
+                rows="5"
+                placeholder="Tell us about your experience..."
+                required></textarea>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+            type="submit"
+            class="booking-button">
+
+            Submit Review
+
+        </button>
+
+    </form>
+
+</div>
+			
+
+        <!-- BACK BUTTON -->
+
+        <a href="/"
+           class="btn">
+
+            ← Back to Restaurants
+
+        </a>
+
+    </div>
+    
+    
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 FoodBook.
+        All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
